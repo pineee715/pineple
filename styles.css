@@ -1,0 +1,555 @@
+body {
+    background-color: #1A2526;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+header {
+    background: rgba(42, 52, 53, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDown 0.5s ease-out 0.2s forwards;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.logo span {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.tagline {
+    font-size: 12px;
+    color: #00C853;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+.tagline:hover {
+    color: #FFFFFF;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+    transform: rotate(90deg);
+}
+
+.menu-dialog, .report-dialog, #languageModal {
+    background: linear-gradient(135deg, rgba(42, 52, 53, 0.98), rgba(0, 200, 83, 0.5));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 200, 83, 0.7);
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    max-width: 500px;
+    width: 90%;
+    padding: 30px;
+    transform: scale(0.5) translateY(-150px);
+    opacity: 0;
+    transition: all 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 2000;
+}
+
+.menu-dialog[open], .report-dialog[open], #languageModal[open] {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.dialog-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog-content h2 {
+    font-size: 24px;
+    margin: 0 0 30px;
+    color: #00C853;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 22px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.4s ease, background 0.4s ease, color 0.4s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(180deg) scale(1.3);
+    background: rgba(0, 200, 83, 0.5);
+    color: #FFFFFF;
+}
+
+.menu-item {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    position: relative;
+}
+
+.menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.menu-item:last-child::after {
+    display: none;
+}
+
+.search-mod {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.search-mod:hover {
+    box-shadow: 0 0 15px rgba(0, 200, 83, 0.7);
+    transform: scale(1.03);
+}
+
+.search-mod i {
+    font-size: 20px;
+    color: #00C853;
+    margin-right: 12px;
+    transition: transform 0.4s ease;
+}
+
+.search-mod:hover i {
+    transform: scale(1.3);
+}
+
+.search-mod input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+}
+
+.search-mod input::placeholder {
+    color: #B0BEC5;
+    font-style: italic;
+}
+
+.menu-item a {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+}
+
+.menu-item a i {
+    margin-right: 12px;
+    font-size: 18px;
+    color: #00C853;
+    transition: transform 0.4s ease;
+}
+
+.menu-item a:hover {
+    background: linear-gradient(to right, rgba(0, 200, 83, 0.6), rgba(255, 255, 255, 0.2));
+    transform: translateX(10px);
+    color: #00C853;
+}
+
+.menu-item a:hover i {
+    transform: scale(1.3);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.nav-container a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-container a.active {
+    color: #00C853;
+}
+
+.nav-container .indicator {
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    background: #00C853;
+    transition: all 0.3s ease;
+}
+
+.report-dialog #content {
+    width: 100%;
+}
+
+.report-dialog #formSection, .report-dialog #aboutSection {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.report-dialog #formSection {
+    display: flex;
+}
+
+.report-dialog .form-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.report-dialog label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.report-dialog input, .report-dialog textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+}
+
+.report-dialog textarea {
+    height: 100px;
+}
+
+.report-dialog .error {
+    color: #FF5252;
+    font-size: 12px;
+    display: none;
+}
+
+.report-dialog button[type="submit"] {
+    background: #00C853;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.report-dialog button[type="submit"]:hover {
+    background: #009624;
+}
+
+.report-dialog #response {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.report-dialog #response.success {
+    color: #00C853;
+}
+
+.report-dialog #response.error {
+    color: #FF5252;
+}
+
+#languageModal button {
+    background: #00C853;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#languageModal button:hover {
+    background: #009624;
+}
+
+#aboutSection ol {
+    margin: 0;
+    padding-left: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+#aboutSection li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #B0BEC5;
+}
+
+.app-container {
+    padding: 20px;
+}
+
+.app-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.app-card.active {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.app-card.hidden {
+    display: none;
+}
+
+.app-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+.app-card img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+}
+
+.app-card:hover img {
+    transform: rotate(360deg);
+}
+
+.app-info h2 {
+    font-size: 16px;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.app-info h2:hover {
+    color: #00C853;
+}
+
+.category, .version {
+    font-size: 12px;
+    color: #B0BEC5;
+    margin: 2px 0;
+}
+
+.premium {
+    font-size: 12px;
+    color: #00C853;
+    margin: 2px 0;
+}
+
+.mod-label {
+    background-color: #D32F2F;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 10px;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+}
+
+.app-card:hover .mod-label {
+    transform: scale(1.1);
+}
+
+.updated-btn, .maintenance-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    margin-left: auto;
+    pointer-events: none;
+}
+
+.updated-btn {
+    background: rgba(0, 200, 83, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 200, 83, 0.5);
+    color: #00C853;
+}
+
+.maintenance-btn {
+    background: rgba(255, 152, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 152, 0, 0.5);
+    color: #FF9800;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgba(42, 52, 53, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+    .app-card, header, footer, .menu-dialog, .report-dialog, #languageModal {
+        background: #2A3435;
+        box-shadow: none;
+        border: none;
+    }
+    .updated-btn {
+        background: #00C853;
+        color: white;
+    }
+    .maintenance-btn {
+        background: #FF9800;
+        color: white;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .updated-btn, .maintenance-btn {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    .menu-dialog, .report-dialog, #languageModal {
+        max-width: 320px;
+        padding: 20px;
+    }
+    .dialog-content h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        letter-spacing: 1.5px;
+    }
+    .menu-item {
+        margin-bottom: 10px;
+    }
+    .search-mod {
+        padding: 10px;
+    }
+    .search-mod i {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+    .search-mod input {
+        font-size: 14px;
+    }
+    .menu-item a {
+        padding: 12px;
+        font-size: 14px;
+    }
+    .menu-item a i {
+        font-size: 16px;
+        margin-right: 10px;
+    }
+    .close-btn {
+        font-size: 20px;
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (min-width: 768px) {
+    .app-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+}
