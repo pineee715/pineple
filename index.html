@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kepin prend 🇮🇩 - Premium Apps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="pinpin.png" alt="Kepin Official Logo">
+            <span>Mod | Kepin Official 🇮🇩</span>
+            <p class="tagline">Premium Apps by Kepinn Pemula</p>
+        </div>
+        <nav class="menu">
+            <div class="menu-icon">☰</div>
+        </nav>
+    </header>
+
+    <dialog class="menu-dialog">
+        <div class="dialog-content">
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+            <h2>Menu</h2>
+            <div class="menu-item search-mod">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Cari Aplikasi..." autocomplete="off">
+            </div>
+            <div class="menu-item">
+                <a href="https://bidzzofficial.my.id"><i class="fas fa-user"></i> About Owner</a>
+            </div>
+            <div class="menu-item">
+                <a href="#" id="report-issue-link"><i class="fas fa-exclamation-circle"></i> Report Issue</a>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog class="report-dialog">
+        <div class="dialog-content">
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+            <div class="nav-container">
+                <a href="#" id="formLink" class="active">Formulir</a>
+                <a href="#" id="aboutLink">Cara Mengisi</a>
+                <div class="indicator"></div>
+            </div>
+            <div id="content">
+                <div id="formSection">
+                    <h2 id="formTitle">Formulir Laporan</h2>
+                    <form id="requestForm">
+                        <div class="form-group">
+                            <label id="nameLabel" for="name">Nama Lengkap:</label>
+                            <input type="text" id="name" name="name">
+                            <span class="error" id="nameError">Nama wajib diisi</span>
+                        </div>
+                        <div class="form-group">
+                            <label id="emailLabel" for="email">Email:</label>
+                            <input type="email" id="email" name="email">
+                            <span class="error" id="emailError">Email wajib diisi dengan format yang benar</span>
+                        </div>
+                        <div class="form-group">
+                            <label id="requestLabel" for="request">Deskripsi Laporan:</label>
+                            <textarea id="request" name="request"></textarea>
+                            <span class="error" id="requestError">Deskripsi wajib diisi</span>
+                        </div>
+                        <div class="form-group">
+                            <label id="linksLabel" for="links">Links Example (opsional):</label>
+                            <input type="text" id="links" name="links">
+                        </div>
+                        <button type="submit" id="submitButton">Kirim Laporan</button>
+                        <div id="response" style="display:none;"></div>
+                    </form>
+                </div>
+                <div id="aboutSection" style="display:none;">
+                    <h2 id="aboutTitle">Cara Mengisi Formulir</h2>
+                    <ol id="formInstructions">
+                        <li>Masukkan nama lengkap Anda pada kolom "Nama Lengkap".</li>
+                        <li>Isi alamat email yang valid pada kolom "Email" untuk menerima konfirmasi.</li>
+                        <li>Jelaskan masalah atau laporan Anda secara rinci pada kolom "Deskripsi Laporan".</li>
+                        <li>(Opsional) Tambahkan tautan pendukung, seperti tangkapan layar, pada kolom "Links Example".</li>
+                        <li>Klik tombol "Kirim Laporan" untuk mengirim laporan Anda ke admin.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="languageModal">
+        <div class="dialog-content">
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+            <h2>Bahasa / Language</h2>
+            <button onclick="selectLanguage('id')">Bahasa Indonesia</button>
+            <button onclick="selectLanguage('en')">English</button>
+        </div>
+    </dialog>
+
+    <div class="app-container">
+    <div class="app-card" data-name="Spotify" data-path="spotify/spotify.html" onclick="location.href='spotify/spotify.html'">
+        <img src="spotify/spotify.png" alt="Spotify Icon" loading="lazy">
+        <div class="app-info">
+            <h2>Spotify</h2>
+            <p class="category">Music | Size: 45 MB</p>
+            <p class="version">v9.0.54.76</p>
+            <p class="premium">Premium Unlocked</p>
+        </div>
+        <span class="mod-label">MOD</span>
+        <button class="maintenance-btn">MAINTENANCE</button>
+    </div>
+    <div class="app-card" data-name="Grok" data-path="grok/grok.html" onclick="location.href='grok/grok.html'">
+        <img src="grok/grok.png" alt="Grok Icon" loading="lazy">
+        <div class="app-info">
+            <h2>Grok</h2>
+            <p class="category">Entertainment | Size: 45 MB</p>
+            <p class="version">v39.14.7</p>
+            <p class="premium">Premium Unlocked</p>
+        </div>
+        <span class="mod-label">MOD</span>
+        <button class="updated-btn">UPDATED</button>
+    </div>
+    <div class="app-card" data-name="Loklok" data-path="loklok/loklok.html" onclick="location.href='loklok/loklok.html'">
+        <img src="loklok/loklok.png" alt="Loklok Icon" loading="lazy">
+        <div class="app-info">
+            <h2>Loklok</h2>
+            <p class="category">Entertainment | Size: 50 MB</p>
+            <p class="version">v2.0.0</p>
+            <p class="premium">Premium Unlocked</p>
+        </div>
+        <span class="mod-label">MOD</span>
+        <button class="updated-btn">UPDATED</button>
+    </div>
+    <div class="app-card" data-name="NP Manager" data-path="npmanager/npmanager.html" onclick="location.href='npmanager/npmanager.html'">
+        <img src="npmanager/npmanager.png" alt="NP Manager Icon" loading="lazy">
+        <div class="app-info">
+            <h2>NP Manager</h2>
+            <p class="category">Tools | Size: 60 MB</p>
+            <p class="version">v3.1.8</p>
+            app-container            <p class="premium">Premium Unlocked</p>
+        </div>
+        <span class="mod-label">MOD</span>
+        <button class="updated-btn">UPDATED</button>
+    </div>
+</div>
+
+    <footer>
+        <p>© 2023 Kepinn kyahh>< 🇮🇩</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
